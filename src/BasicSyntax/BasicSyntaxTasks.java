@@ -270,7 +270,7 @@ public class BasicSyntaxTasks {
             for (int j = 1; j <= i; j++) {
                 System.out.printf("%d ", i);
             }
-            System.out.println();
+            System.out.println(); //asdas
         }
     }
 
