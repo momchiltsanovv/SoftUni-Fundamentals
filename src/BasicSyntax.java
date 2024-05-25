@@ -1,8 +1,6 @@
-package BasicSyntax;
 import java.util.Scanner;
-import java.lang.Math;
 
-public class BasicSyntaxTasks {
+public class BasicSyntax {
     public static void main(String[] args) {
 
         //ages();
@@ -11,10 +9,10 @@ public class BasicSyntaxTasks {
         //printAndSum();
         //Login();
         //strongNumber();
-        vendingMachine();
+        //vendingMachine();
         //triangleOfNumbers();
         //orders();
-        //padawanEquipment();
+        padawanEquipment();
 
 
     }
