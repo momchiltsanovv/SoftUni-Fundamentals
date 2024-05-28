@@ -1,3 +1,5 @@
+import com.sun.security.jgss.GSSUtil;
+
 import java.util.Scanner;
 
 public class DataTypesAndVariables {
@@ -10,8 +12,9 @@ public class DataTypesAndVariables {
         //triplesLatinLetters();
         //waterOverflow();
         //beerKegs();
-        spiceMustFlow();
-
+        //spiceMustFlow();
+        //pokeMon();
+        snowballs();
 
 
     }
@@ -81,9 +84,9 @@ public class DataTypesAndVariables {
         Scanner scanner = new Scanner(System.in);
 
         byte size = scanner.nextByte();
-        char firstLetter = 'a';
-        char secondLetter = 'b';
-        char thirdLetter = 'c';
+        char firstLetter;
+        char secondLetter;
+        char thirdLetter;
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
                 for (int k = 0; k < size; ++k) {
@@ -106,7 +109,7 @@ public class DataTypesAndVariables {
         for (int i = 0; i < timesPoured; ++i) {
             short curPoured = scanner.nextShort();
             curLiters += curPoured;
-            if(curLiters > capacity) {
+            if (curLiters > capacity) {
                 System.out.println("Insufficient capacity!");
                 curLiters -= curPoured;
             }
@@ -126,7 +129,7 @@ public class DataTypesAndVariables {
             float radius = Float.parseFloat(scanner.nextLine());
             int height = Integer.parseInt(scanner.nextLine());
             float curVolume = (float) (Math.PI * radius * radius * height);
-            if(curVolume > maxVolume) {
+            if (curVolume > maxVolume) {
                 maxVolume = curVolume;
                 biggestKeg = curKeg;
             }
@@ -139,12 +142,12 @@ public class DataTypesAndVariables {
         Scanner scanner = new Scanner(System.in);
 
         final byte workersConsume = 26; // the amount the workers consume
-        final byte lessSpicePerDay = 10;
+        final byte lessSpicePerDay = 10; // the amount that is lost after a day of gathering spice
         int startringYield = scanner.nextInt();
         int extracted = 0;
         int daysGathering = 0;
 
-        while(startringYield >= 100){
+        while (startringYield >= 100) {
             extracted += startringYield;
             extracted -= workersConsume;
             daysGathering++;
@@ -155,8 +158,57 @@ public class DataTypesAndVariables {
             extracted -= workersConsume; // the workers take last one
         }
         System.out.printf("%d%n%d", daysGathering, extracted);
-
     }
+
+
+    public static void pokeMon() {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        byte y = scanner.nextByte();
+        short targetPoked = 0;
+        int subtractedN = n;
+
+        while (subtractedN >= m) {
+            subtractedN -= m;
+            targetPoked++;
+
+            if (subtractedN >= y && subtractedN == 0.5 * n && y != 0) {
+                subtractedN /= y;
+            }
+        }
+
+        System.out.printf("%d%n%d", subtractedN, targetPoked);
+    }
+
+    public static void snowballs() {
+        Scanner scanner = new Scanner(System.in);
+
+
+        byte snowballCount = scanner.nextByte();
+        double highestValue = 0;
+        short highestSnow = 0;
+        short highestTime = 0;
+        byte highestQuality = 0;
+
+        for (int i = 0; i < snowballCount; ++i) {
+            short snowballSnow = scanner.nextShort();
+            short snowballTime = scanner.nextShort();
+            byte snowballQuality = scanner.nextByte();
+            double curValue = Math.pow(((double) snowballSnow / snowballTime), snowballQuality);
+            if (curValue > highestValue) {
+                highestValue = curValue;
+                highestSnow = snowballSnow;
+                highestTime = snowballTime;
+                highestQuality = snowballQuality;
+            }
+
+        }
+
+        System.out.printf("%d : %d = %.0f (%d)", highestSnow, highestTime, highestValue, highestQuality);
+    }
+
 
 }
 
