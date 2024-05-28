@@ -9,7 +9,8 @@ public class DataTypesAndVariables {
         //printAsciiTable();
         //triplesLatinLetters();
         //waterOverflow();
-        beerKegs();
+        //beerKegs();
+        spiceMustFlow();
 
 
 
@@ -113,7 +114,6 @@ public class DataTypesAndVariables {
         System.out.println(curLiters);
     }
 
-
     public static void beerKegs() {
         Scanner scanner = new Scanner(System.in);
 
@@ -133,6 +133,29 @@ public class DataTypesAndVariables {
             curKeg = "";
         }
         System.out.println(biggestKeg);
+    }
+
+    public static void spiceMustFlow() {
+        Scanner scanner = new Scanner(System.in);
+
+        final byte workersConsume = 26; // the amount the workers consume
+        final byte lessSpicePerDay = 10;
+        int startringYield = scanner.nextInt();
+        int extracted = 0;
+        int daysGathering = 0;
+
+        while(startringYield >= 100){
+            extracted += startringYield;
+            extracted -= workersConsume;
+            daysGathering++;
+            startringYield -= lessSpicePerDay;
+        }
+
+        if (workersConsume < extracted) {
+            extracted -= workersConsume; // the workers take last one
+        }
+        System.out.printf("%d%n%d", daysGathering, extracted);
+
     }
 
 }
