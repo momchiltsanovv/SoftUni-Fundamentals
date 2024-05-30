@@ -160,7 +160,6 @@ public class DataTypesAndVariables {
         System.out.printf("%d%n%d", daysGathering, extracted);
     }
 
-
     public static void pokeMon() {
         Scanner scanner = new Scanner(System.in);
 
