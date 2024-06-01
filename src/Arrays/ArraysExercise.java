@@ -4,7 +4,6 @@ import java.util.Scanner;
 import java.util.Arrays;
 
 
-
 public class ArraysExercise {
     public static void main(String[] args) {
 
@@ -12,10 +11,10 @@ public class ArraysExercise {
         //commonElements();
         //zigZagArrays();
         //arrayRotation();
-        topIntegers();
+        //topIntegers();
+        equalSum();
 
     }
-
 
     public static void train() {
         Scanner scanner = new Scanner(System.in);
@@ -100,11 +99,60 @@ public class ArraysExercise {
 
         int[] arr = Arrays.stream(scanner.nextLine()
                         .split(" "))
-                        .mapToInt(Integer::parseInt).toArray();
+                .mapToInt(Integer::parseInt).toArray();
+
+        for (int position = 0; position < arr.length; ++position) {
+            if (position == arr.length - 1) { // check if we are on the last element of the array
+                System.out.print(arr[position] + " ");
+                break;
+            }
+
+            int curNumber = arr[position];
+            boolean flag = true;
+            for (int nextPosition = position + 1; nextPosition < arr.length; ++nextPosition) {
+                int nextNumber = arr[nextPosition];
+
+                if (curNumber <= nextNumber) {
+                    flag = false;
+                    break;
+                }
+            }
+            if (flag) {
+                System.out.printf("%d ", curNumber);
+            }
+        }
+    }
 
 
 
+    //TODO: Think it through!!!
+    public static void equalSum() {
+        Scanner scanner = new Scanner(System.in);
 
+        int[] arr = Arrays.stream(scanner.nextLine()
+                        .split(" "))
+                .mapToInt(Integer::parseInt).toArray();
 
+        for (int mainPosition = 0; mainPosition < arr.length; ++mainPosition) {
+            if( arr.length == 1){
+                System.out.println(0);
+                break;
+            }
+            int leftSum = 0;
+            for (int leftPosition = mainPosition + 1; leftPosition < mainPosition; ++leftPosition) {
+                leftSum += arr[leftPosition];
+            }
+            int rightSum = 0;
+            for (int rightPositon = mainPosition + 1; rightPositon < arr.length ; ++rightPositon) {
+                rightSum += arr[rightPositon];
+            }
+
+            if (leftSum == rightSum) {
+                System.out.println(mainPosition);
+            }else{
+                System.out.println("no");
+            }
+            break;
+        }
     }
 }
