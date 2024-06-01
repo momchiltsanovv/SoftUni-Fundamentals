@@ -1,3 +1,5 @@
+package BasicSyntax;
+
 import java.util.Scanner;
 
 public class BasicSyntax {

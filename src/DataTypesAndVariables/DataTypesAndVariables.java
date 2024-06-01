@@ -1,4 +1,4 @@
-import com.sun.security.jgss.GSSUtil;
+package DataTypesAndVariables;
 
 import java.util.Scanner;
 
