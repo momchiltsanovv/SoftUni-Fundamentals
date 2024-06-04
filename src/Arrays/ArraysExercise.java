@@ -12,7 +12,8 @@ public class ArraysExercise {
         //zigZagArrays();
         //arrayRotation();
         //topIntegers();
-        equalSum();
+        //equalSum();
+        condenseArrayToNumber();
 
     }
 
@@ -81,17 +82,23 @@ public class ArraysExercise {
     public static void arrayRotation() {
         Scanner scanner = new Scanner(System.in);
 
-        short[] arr = new short[10];
+        String[] array = scanner.nextLine().split(" ");
+        int rotations = Integer.parseInt(scanner.nextLine());
 
-        for (short i = 0; i < arr.length; ++i) {
-            arr[i] = scanner.nextShort();
+        for (int rotation = 0; rotation < rotations; rotation++) {
+            // Taking the first element from the array
+            String firstElement = array[0];
+
+            // going through the whole array and shift it to the left element by element
+            for (int position = 0; position < array.length - 1; position++) {
+                array[position] = array[position + 1];
+            }
+            // Putting the first element on the last position after we shift the array
+            array[array.length - 1] = firstElement;
         }
-
-        byte rotations = scanner.nextByte();
-        for (short i = 0; i < rotations; ++i) {
-
+        for (String element : array) {
+            System.out.print(element + " ");
         }
-
     }
 
     public static void topIntegers() {
@@ -123,36 +130,52 @@ public class ArraysExercise {
         }
     }
 
-
-
-    //TODO: Think it through!!!
     public static void equalSum() {
         Scanner scanner = new Scanner(System.in);
 
-        int[] arr = Arrays.stream(scanner.nextLine()
-                        .split(" "))
-                .mapToInt(Integer::parseInt).toArray();
+        int[] arr = Arrays.stream(scanner.nextLine().split(" "))
+                .mapToInt(Integer::parseInt)
+                .toArray();
 
-        for (int mainPosition = 0; mainPosition < arr.length; ++mainPosition) {
-            if( arr.length == 1){
-                System.out.println(0);
-                break;
-            }
+        for (int mainPosition = 0; mainPosition < arr.length; mainPosition++) {
+
             int leftSum = 0;
-            for (int leftPosition = mainPosition + 1; leftPosition < mainPosition; ++leftPosition) {
+            for (int leftPosition = 0; leftPosition < mainPosition; leftPosition++) {
                 leftSum += arr[leftPosition];
             }
+
             int rightSum = 0;
-            for (int rightPositon = mainPosition + 1; rightPositon < arr.length ; ++rightPositon) {
+            for (int rightPositon = mainPosition + 1; rightPositon < arr.length; ++rightPositon) {
                 rightSum += arr[rightPositon];
             }
 
             if (leftSum == rightSum) {
                 System.out.println(mainPosition);
-            }else{
-                System.out.println("no");
+                return;
             }
-            break;
         }
+        System.out.println("no");
+
     }
+
+    public static void condenseArrayToNumber() {
+        Scanner scanner = new Scanner(System.in);
+
+        int[] arr = Arrays.stream(scanner.nextLine().split(" "))
+                    .mapToInt(Integer::parseInt).toArray();
+
+        while(arr.length > 1) {
+            int[] condensed = new int[arr.length - 1];
+
+            for (int i = 0; i < condensed.length; i++) {
+                condensed[i] = arr[i] + arr[i + 1];
+            }
+            arr = condensed;
+        }
+
+        System.out.println(arr[0]);
+
+    }
+
+
 }
