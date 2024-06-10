@@ -67,11 +67,11 @@ public class Methods {
         String password = scanner.nextLine();
 
         boolean isValid = true;
-        if(password.length() < 6 || password.length() > 10) {
+        if (password.length() < 6 || password.length() > 10) {
             System.out.println("Password must be between 6 and 10 characters");
             isValid = false;
         }
-        if(!password.matches("[a-zA-Z0-9]+")) {
+        if (!password.matches("[a-zA-Z0-9]+")) {
             System.out.println("Password must consist only of letters and digits");
             isValid = false;
         }
@@ -81,11 +81,11 @@ public class Methods {
                 digits++;
             }
         }
-        if(digits < 2) {
+        if (digits < 2) {
             System.out.println("Password must have at least 2 digits");
             isValid = false;
         }
-        if(isValid) {
+        if (isValid) {
             System.out.println("Password is valid");
         }
     }
