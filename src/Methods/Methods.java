@@ -1,12 +1,10 @@
 package Methods;
-
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Methods {
     public static void main(String[] args) {
 
-        passwordValidator();
+        palindromeIntegers();
     }
 
     public static void smallestThreeNums() {
@@ -89,6 +87,103 @@ public class Methods {
             System.out.println("Password is valid");
         }
     }
+
+    public static int calculationsAddAndSubtract(int num1, int num2, int num3) {
+        return num1 + num2 - num3;
+    }
+
+    public static void addAndSubtract() {
+        Scanner scanner = new Scanner(System.in);
+
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+        int num3 = scanner.nextInt();
+        System.out.println(calculationsAddAndSubtract(num1, num2, num3));
+    }
+
+
+    public static String inputMiddleChair(String word) {
+
+        int idx = word.length() / 2;
+        if (word.length() % 2 != 0) {
+            return word.substring(idx, idx + 1);
+        }
+
+        return word.substring(idx - 1, idx + 1);
+    }
+
+    public static void middleChair() {
+        Scanner scanner = new Scanner(System.in);
+
+        String word = scanner.nextLine();
+        System.out.println(inputMiddleChair(word));
+
+    }
+
+    public static void createAndPrintMatrix(int num) {
+
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < num; j++) {
+                System.out.printf("%d ", num);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void nxnMatrix() {
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+        createAndPrintMatrix(input);
+    }
+
+    public static double calculateFactorial(int num) {
+
+        if (num == 0)
+            return 1;
+
+        return num * calculateFactorial(num - 1);
+    }
+
+    public static void factorialDivision() {
+        Scanner scanner = new Scanner(System.in);
+        int num1 = scanner.nextInt();
+        int num2 = scanner.nextInt();
+
+        double factorialFirstNum = calculateFactorial(num1);
+        double factorialSecondNum = calculateFactorial(num2);
+        System.out.printf("%.2f ", factorialFirstNum/factorialSecondNum);
+    }
+
+    public static boolean checkIfPalindrome(String num) {
+
+        StringBuilder reversedNum = new StringBuilder();
+        reversedNum.append(num);
+        reversedNum.reverse();
+
+        boolean isPalindrome = true;
+        for(int i = reversedNum.length() - 1; i >= 0; i--) {
+            if(reversedNum.charAt(i) != num.charAt(i)) {
+                isPalindrome = false;
+                return isPalindrome;
+            }
+        }
+
+        return isPalindrome;
+    }
+
+    public static void palindromeIntegers() {
+        Scanner scanner = new Scanner(System.in);
+        String number = scanner.nextLine();
+        while(!number.equals("END")) {
+            System.out.println(checkIfPalindrome(number));
+            number = scanner.nextLine();
+        }
+
+    }
+
+
+
+
 
 }
 
