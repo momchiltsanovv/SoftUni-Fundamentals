@@ -1,10 +1,11 @@
 package Methods;
+
 import java.util.Scanner;
 
 public class Methods {
     public static void main(String[] args) {
 
-        palindromeIntegers();
+        topIntegers();
     }
 
     public static void smallestThreeNums() {
@@ -151,7 +152,7 @@ public class Methods {
 
         double factorialFirstNum = calculateFactorial(num1);
         double factorialSecondNum = calculateFactorial(num2);
-        System.out.printf("%.2f ", factorialFirstNum/factorialSecondNum);
+        System.out.printf("%.2f ", factorialFirstNum / factorialSecondNum);
     }
 
     public static boolean checkIfPalindrome(String num) {
@@ -161,8 +162,8 @@ public class Methods {
         reversedNum.reverse();
 
         boolean isPalindrome = true;
-        for(int i = reversedNum.length() - 1; i >= 0; i--) {
-            if(reversedNum.charAt(i) != num.charAt(i)) {
+        for (int i = reversedNum.length() - 1; i >= 0; i--) {
+            if (reversedNum.charAt(i) != num.charAt(i)) {
                 isPalindrome = false;
                 return isPalindrome;
             }
@@ -174,15 +175,52 @@ public class Methods {
     public static void palindromeIntegers() {
         Scanner scanner = new Scanner(System.in);
         String number = scanner.nextLine();
-        while(!number.equals("END")) {
+        while (!number.equals("END")) {
             System.out.println(checkIfPalindrome(number));
             number = scanner.nextLine();
         }
 
     }
 
+    public static boolean containsOdd(int number) {
+
+        int numLength = String.valueOf(number).length();
+
+        for (int i = 0; i < numLength; ++i) {
+            if ((number % 10) % 2 != 0) {
+                return true;
+            }
+            number /= 10;
+        }
+
+        return false;
+    }
+
+    public static boolean sumOfDigitsDivisibleByEight(int number) {
+
+        int numLength = String.valueOf(number).length();
+        int sumOfDigits = 0;
+        for (int i = 0; i < numLength; ++i) {
+            sumOfDigits += number % 10;
+            number /= 10;
+        }
+
+        return sumOfDigits % 8 == 0;
+    }
 
 
+    public static void topIntegers() {
+        Scanner scanner = new Scanner(System.in);
+
+        int input = scanner.nextInt();
+        for (int curNum = 1; curNum <= input; ++curNum) {
+            if (sumOfDigitsDivisibleByEight(curNum) && containsOdd(curNum)) {
+                System.out.println(curNum);
+            }
+        }
+
+
+    }
 
 
 }
