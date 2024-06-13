@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Methods {
     public static void main(String[] args) {
 
-        topIntegers();
+        palindromeIntegers();
     }
 
     public static void smallestThreeNums() {
@@ -183,24 +183,18 @@ public class Methods {
     }
 
     public static boolean containsOdd(int number) {
-
-        int numLength = String.valueOf(number).length();
-
-        for (int i = 0; i < numLength; ++i) {
+        while (number > 0) {
             if ((number % 10) % 2 != 0) {
                 return true;
             }
             number /= 10;
         }
-
         return false;
     }
 
     public static boolean sumOfDigitsDivisibleByEight(int number) {
-
-        int numLength = String.valueOf(number).length();
         int sumOfDigits = 0;
-        for (int i = 0; i < numLength; ++i) {
+        while(number > 0) {
             sumOfDigits += number % 10;
             number /= 10;
         }
@@ -209,7 +203,7 @@ public class Methods {
     }
 
 
-    public static void topIntegers() {
+    public static void topNumbers() {
         Scanner scanner = new Scanner(System.in);
 
         int input = scanner.nextInt();
