@@ -6,7 +6,6 @@ public class Student {
     private double grade;
 
 
-
     public Student(String firstName, String lastName, double grade) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -14,14 +13,19 @@ public class Student {
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName; // better to use this. just to clarify
     }
+
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
+
     public double getGrade() {
-        return grade;
+        return this.grade;
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("%s %s: %.2f", this.firstName, this.lastName, this.grade);
+    }
 }
