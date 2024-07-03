@@ -11,29 +11,32 @@ public class Article {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
-    public String edit(String newContent) {
-        return this.content = newContent;
+    public void edit(String newContent) {
+        this.content = newContent;
     }
 
-    public String changeAuthor(String newAuthor) {
-        return this.author = newAuthor;
+    public void changeAuthor(String newAuthor) {
+        this.author = newAuthor;
     }
 
-    public String rename(String newTitle) {
-        return this.title = newTitle;
+    public void rename(String newTitle) {
+        this.title = newTitle;
     }
 
-
+    @Override
+    public String toString() {
+        return this.title + " - " + this.content + ": " + this.author;
+    }
 
 }
