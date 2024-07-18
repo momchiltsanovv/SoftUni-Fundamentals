@@ -25,7 +25,7 @@ public class Main  {
             The valid price is any real number followed by '$'.
          */
 
-        String regex = "%(?<name>[A-Z][a-z]+)%<(?<product>[A-Za-z]+)>[a-z]*\\|(?<count>[0-9]+)\\|[a-z]*(?<price>[0-9]+.[0-9]*)\\$";
+        String regex = "%(?<name>[A-Z][a-z]+)%[^|$%.]*<(?<product>\\w+)>[^|$%.]*\\|(?<count>[0-9]+)\\|[^|$%.]*?(?<price>[0-9]+\\.?[0-9]*)\\$";
 
         Pattern pattern = Pattern.compile(regex);
 
