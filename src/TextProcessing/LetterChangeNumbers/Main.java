@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
 
-
         String[] input = sc.nextLine().split("\\s+"); // regex to catch of there is more than one space between the inputs
 
         double sum = 0;
