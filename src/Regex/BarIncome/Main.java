@@ -43,7 +43,6 @@ public class Main  {
                 System.out.printf("%s: %s - %.2f%n", name, product, curProductPrice);
             }
 
-
                 input = sc.nextLine();
             }
 
