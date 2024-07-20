@@ -22,7 +22,6 @@ public class Main {
         double sum = 0;
         while (!input.equals("Purchase")) {
             Matcher matcher = pattern.matcher(input);
-
             if (matcher.find()) {
                 String name = matcher.group("name");
                 double price = Double.parseDouble(matcher.group("price"));
