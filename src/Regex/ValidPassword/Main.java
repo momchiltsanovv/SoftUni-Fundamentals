@@ -13,7 +13,6 @@ public class Main {
         int inputs = sc.nextInt();
 
 
-
         for (int i = 0; i < inputs; i++) {
             String password = sc.next();
             String regex = "_\\.+[A-Z][a-zA-Z0-9]{4,}[A-Z]_\\.+";
@@ -22,8 +21,8 @@ public class Main {
 
             StringBuilder group = new StringBuilder();
             if (matcher.find()) {
-                for(char num : matcher.group().toCharArray()) {
-                    if(Character.isDigit(num)) {
+                for (char num : matcher.group().toCharArray()) {
+                    if (Character.isDigit(num)) {
                         group.append(num);
                     }
                 }
@@ -33,9 +32,9 @@ public class Main {
             }
 
             System.out.print("Group: ");
-            if(group.isEmpty()) {
+            if (group.isEmpty()) {
                 System.out.println("default");
-            }else{
+            } else {
                 System.out.println(group);
             }
 
