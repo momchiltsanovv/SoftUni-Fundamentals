@@ -36,7 +36,6 @@ public class ThePianist {
         }
 
         printResult(piecesList);
-
     }
 
     public static void printResult(Map<String, List<String>> piecesList) {
