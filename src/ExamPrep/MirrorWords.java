@@ -37,7 +37,11 @@ public class MirrorWords {
             }
         }
 
+        printMirrorWords(pairs, mirrorWords, pairsCount);
 
+    }
+
+    public static void printMirrorWords(List<String> pairs, int mirrorWords, int pairsCount) {
         if(pairsCount > 0){
             System.out.printf("%d word pairs found!\n", pairsCount);
             if(mirrorWords > 0){
@@ -54,7 +58,6 @@ public class MirrorWords {
             System.out.print("No word pairs found!\n");
             System.out.println("No mirror words!");
         }
-
     }
 
 }
