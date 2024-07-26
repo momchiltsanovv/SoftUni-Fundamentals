@@ -10,8 +10,6 @@ public class Main  {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
 
-
-
         String input = sc.nextLine();
         /*
             valid order -> customer,product count  and price

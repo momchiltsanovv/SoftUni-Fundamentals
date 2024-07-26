@@ -12,7 +12,6 @@ public class Main {
 
         int inputs = sc.nextInt();
 
-
         for (int i = 0; i < inputs; i++) {
             String password = sc.next();
             String regex = "_\\.+[A-Z][a-zA-Z0-9]{4,}[A-Z]_\\.+";
@@ -37,7 +36,6 @@ public class Main {
             } else {
                 System.out.println(group);
             }
-
 
         }
 

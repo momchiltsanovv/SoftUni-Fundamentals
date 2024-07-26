@@ -19,7 +19,7 @@ public class MirrorWords {
         Matcher matcher = regexPattern.matcher(input);
         int pairsCount = 0;
         int mirrorWords = 0;
-        
+
         List<String> pairs = new ArrayList<>();
 
         while (matcher.find()) {
