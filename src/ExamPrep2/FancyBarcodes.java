@@ -9,7 +9,7 @@ import static java.lang.System.in;
 public class FancyBarcodes {
     public static void main(String[] args) {
         Scanner sc = new Scanner(in);
-        
+
         int size = Integer.parseInt(sc.nextLine());
         String regex = "(?<surrounding>@#+)(?<text>[A-Z][a-zA-Z0-9]{4,}[A-Z])@#+";
         Pattern pattern = Pattern.compile(regex);
