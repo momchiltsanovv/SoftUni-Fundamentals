@@ -8,28 +8,26 @@ public class AdAsta {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        String input = scanner.nextLine();
-        String regex = "([#|])(?<itemName>[A-Za-z\\s]+)\\1(?<expirationDate>[0-9]{2}/[0-9]{2}/[0-9]{2})\\1(?<kcal>[0-9]{1,5})\\1";
-        int totalCalories = 0;
+        String regex = "(?<constraints>[#|])(?<name>[a-zA-Z]+\\s*[A-Za-z]*)\\1(?<date>\\d{2}/\\d{2}/\\d{2})\\1(?<kcal>\\d+)\\1";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(input);
-        List<String> foodList = new ArrayList<>();
+        Matcher matcher = pattern.matcher(scanner.nextLine());
+
+        List<String> items = new ArrayList<>();
+        int totalCalories = 0;
         while (matcher.find()) {
-            String name = matcher.group("itemName");
-            String expirationDate = matcher.group("expirationDate");
-            int calories = Integer.parseInt(matcher.group("kcal"));
-            totalCalories += calories;
-            foodList.add(String.format("Item: %s, Best before: %s, Nutrition: %d", name, expirationDate, calories));
+            String name = matcher.group("name");
+            String date = matcher.group("date");
+            int nutrition = Integer.parseInt(matcher.group("kcal"));
+            items.add(String.format("Item: %s, Best before: %s, Nutrition: %d", name, date, nutrition));
+            totalCalories += nutrition;
         }
 
-        int days = totalCalories / 2000;
-        print(foodList, days);
-    }
+        int daysToLast = totalCalories / 2000;
 
-    public static void print(List<String> foodList, int days) {
-        System.out.printf("You have food to last you for: %d days!\n", days);
-        for (String food : foodList) {
-            System.out.println(food);
+            System.out.printf("You have food to last you for: %d days!\n", daysToLast);
+
+        for (String item : items) {
+            System.out.println(item);
         }
     }
 }

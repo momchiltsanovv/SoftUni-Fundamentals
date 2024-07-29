@@ -10,9 +10,9 @@ public class PlantDiscovery {
         Scanner sc = new Scanner(in);
 
         int size = Integer.parseInt(sc.nextLine());
-
         Map<String, List<Integer>> plantsAndRarity = new LinkedHashMap<>();// name of plant and list of its rarity values
         Map<String, List<Integer>> rating = new LinkedHashMap<>();// name of plant and list of its rating values
+
         for (int i = 0; i < size; i++) {
             String[] curPlant = sc.nextLine().split("<->");
             String plantName = curPlant[0];
@@ -25,7 +25,6 @@ public class PlantDiscovery {
                 plantsAndRarity.get(plantName).add(plantRarity);
             }
             rating.putIfAbsent(plantName, new ArrayList<>());
-
         }
 
         String[] command = sc.nextLine().split(": ");
@@ -40,8 +39,6 @@ public class PlantDiscovery {
         }
 
         printOutput(rating, plantsAndRarity);
-
-
     }
 
     private static void printOutput(Map<String, List<Integer>> rating, Map<String, List<Integer>> plantsAndRarity) {
@@ -83,7 +80,6 @@ public class PlantDiscovery {
             plantsAndRarity.get(plantName).remove(0);
             plantsAndRarity.get(plantName).add(plantRarity);
         }
-
     }
 
     private static void rate(String plantData, Map<String, List<Integer>> rating) {
