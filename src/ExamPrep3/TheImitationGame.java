@@ -44,5 +44,5 @@ public class TheImitationGame {
             index = encrypted.indexOf(substring, index);
         }
     }
-    
+
 }
